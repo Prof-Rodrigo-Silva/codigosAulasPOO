@@ -1,5 +1,8 @@
 package classes.java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno {
 	
 	private String nome;
@@ -13,7 +16,8 @@ public class Aluno {
 	String dataMatricula;
 	String nomeEscola;
 	String serieMatriculado;*/
-	private Disciplina disciplina = new Disciplina();
+	//private Disciplina disciplina = new Disciplina();
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	public Aluno() {
 		
@@ -27,11 +31,13 @@ public class Aluno {
 		idade = idadePadrao;
 	}
 		
-	public Disciplina getDisciplina() {
-		return disciplina;
+	
+	
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 	public String getNome() {
 		return nome;
@@ -45,21 +51,29 @@ public class Aluno {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	
+		
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", disciplina=" + disciplina + "]";
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", disciplinas=" + disciplinas + "]";
 	}
-	
 	public double CalculaMedia() {
+		double somaNotas = 0;
 		
-		return (disciplina.getNota1()+disciplina.getNota2()+disciplina.getNota3()+disciplina.getNota4())/4;
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota();
+		}
+		return somaNotas / disciplinas.size();
 	}
 	
 	public String CalculaMedia1() {
 		double media = this.CalculaMedia();
-		if(media >= 70) {
-			return "Aprovado";
+		
+		if(media >=50) {
+			if(media >= 70) {
+				return "Aprovado";			
+			}else {
+				return "Recuperação";
+			}
 		}else {
 			return "Reprovado";
 		}
