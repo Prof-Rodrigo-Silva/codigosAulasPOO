@@ -88,6 +88,7 @@ public class ClasseExecutavel {
 				aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover)- posicao);
 				posicao++;
 				continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
+				
 			}
 		}
 		
