@@ -3,6 +3,8 @@ package classes.java;
 import java.util.ArrayList;
 import java.util.List;
 
+import atributos.estaticos.StatusAluno;
+
 public class Aluno {
 	
 	private String nome;
@@ -70,12 +72,12 @@ public class Aluno {
 		
 		if(media >=50) {
 			if(media >= 70) {
-				return "Aprovado";			
+				return StatusAluno.APROVADO;			
 			}else {
-				return "Recuperação";
+				return StatusAluno.RECUPERACAO;
 			}
 		}else {
-			return "Reprovado";
+			return StatusAluno.REPROVADO;
 		}
 	}
 		
