@@ -5,19 +5,11 @@ import java.util.List;
 
 import atributos.estaticos.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa{
 	
-	private String nome;
-	//public String matricula;
-	private int idade;
-	/*String dataNascimento;
-	String numeroCpf;
-	String registroGeral;
-	String nomeMae;
-	String nomePai;
 	String dataMatricula;
 	String nomeEscola;
-	String serieMatriculado;*/
+	String serieMatriculado;
 	//private Disciplina disciplina = new Disciplina();
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
@@ -25,12 +17,12 @@ public class Aluno {
 		
 	}
 	public Aluno(String nomePadrao){
-		nome = nomePadrao;
+		super.nome = nomePadrao;
 		
 	}
 	public Aluno(String nomePadrao, int idadePadrao) {
-		nome = nomePadrao;
-		idade = idadePadrao;
+		super.nome = nomePadrao;
+		super.idade = idadePadrao;
 	}
 		
 	
@@ -53,7 +45,27 @@ public class Aluno {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+	
+	
 		
+	public String getDataMatricula() {
+		return dataMatricula;
+	}
+	public void setDataMatricula(String dataMatricula) {
+		this.dataMatricula = dataMatricula;
+	}
+	public String getNomeEscola() {
+		return nomeEscola;
+	}
+	public void setNomeEscola(String nomeEscola) {
+		this.nomeEscola = nomeEscola;
+	}
+	public String getSerieMatriculado() {
+		return serieMatriculado;
+	}
+	public void setSerieMatriculado(String serieMatriculado) {
+		this.serieMatriculado = serieMatriculado;
+	}
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", disciplinas=" + disciplinas + "]";
@@ -114,6 +126,16 @@ public class Aluno {
 		return true;
 	}
 	
+	@Override
+	public boolean pessoaMaiorIdade() {
+		
+		return idade >=21;
+	}
+	@Override
+	public double salario() {
+		
+		return 0;
+	}
 	
 	
 	
