@@ -9,11 +9,76 @@ import javax.swing.JOptionPane;
 import atributos.estaticos.StatusAluno;
 import classes.java.Aluno;
 import classes.java.Disciplina;
+import classes.java.Secretario;
+import classesauxiliares.FuncaoAutenticacao;
+import interfaces.PermitirAcesso;
 
 public class ClasseExecutavel {
 	
 	public static void main(String[] args) {
 		//O objeto ainda não existe na memoria
+		
+		String login = JOptionPane.showInputDialog("Informe o login");
+		String senha = JOptionPane.showInputDialog("Informe a senha");
+		
+		// 1° Modo - setando atributos da classe!!
+		/*Secretario secretario = new Secretario();
+		
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
+		
+		if(secretario.autenticar()) {
+			
+			JOptionPane.showMessageDialog(null, "ACESSOU!");
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}
+		
+		//2° Metodo - Passagem de Parametros
+		PermitirAcesso secretario = new Secretario();
+		
+		if(secretario.autenticar(login, senha)) {
+			
+			JOptionPane.showMessageDialog(null, "ACESSOU!");
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}
+		
+		//3° Metodo - Construtores
+		PermitirAcesso secretario = new Secretario(login,senha);
+		
+		if(secretario.autenticar()) {
+			
+			JOptionPane.showMessageDialog(null, "ACESSOU!");
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}
+		
+		FuncaoAutenticacao autentificacao = new FuncaoAutenticacao();
+		PermitirAcesso permitirAcesso = new Secretario(login,senha);
+		
+		if(autentificacao.autenticarAcesso(permitirAcesso)) {
+			
+			JOptionPane.showMessageDialog(null, "ACESSOU!");
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}*/
+		
+		//FuncaoAutenticacao autentificacao = new FuncaoAutenticacao();
+		//PermitirAcesso permitirAcesso = new Secretario(login,senha);
+		
+		if(new FuncaoAutenticacao(new Secretario(login,senha)).autenticarAcesso()) {
+			
+			JOptionPane.showMessageDialog(null, "ACESSOU!");
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}
+		
 		/*Aluno aluno1;
 		aluno1.
 		
@@ -22,9 +87,9 @@ public class ClasseExecutavel {
 		Aluno aluno3 = new Aluno("Pedro");
 		Aluno aluno4 = new Aluno("Laura",18);
 		System.out.println("O nome é "+aluno4.nome+" e a idade é "+aluno4.idade);
-		Aluno aluno5 = new Aluno();*/
+		Aluno aluno5 = new Aluno();
 		
-		/*Aluno aluno = new Aluno();
+		Aluno aluno = new Aluno();
 		aluno.setNome("Alex");
 		aluno.setIdade(37);
 		aluno.setNota1(90);
@@ -39,21 +104,21 @@ public class ClasseExecutavel {
 		System.out.println("Nota3 = "+aluno.getNota3());
 		System.out.println("Nota4 = "+aluno.getNota4());
 		
-		System.out.println(aluno.toString());*/
+		System.out.println(aluno.toString());
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		/*List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
 		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
-		List<Aluno> alunosReprovados = new ArrayList<Aluno>();*/
+		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 		
-		//É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também
+		É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 		
 		for( int qtd = 1; qtd <= 6; qtd++) {
 		
 		String nome = JOptionPane.showInputDialog("Qual o nome? ");
-		/*String idade = JOptionPane.showInputDialog("Qual idade? ");
+		String idade = JOptionPane.showInputDialog("Qual idade? ");
 		String disciplina1 = JOptionPane.showInputDialog("informe a disciplina1: ");
 		String nota1 = JOptionPane.showInputDialog("informe a nota1: ");
 		String disciplina2 = JOptionPane.showInputDialog("informe a disciplina2: ");
@@ -61,11 +126,11 @@ public class ClasseExecutavel {
 		String disciplina3 = JOptionPane.showInputDialog("informe a disciplina3: ");
 		String nota3 = JOptionPane.showInputDialog("informe a nota3: ");
 		String disciplina4 = JOptionPane.showInputDialog("informe a disciplina4: ");
-		String nota4 = JOptionPane.showInputDialog("informe a nota4: ");*/
+		String nota4 = JOptionPane.showInputDialog("informe a nota4: ");
 		
 		Aluno aluno = new Aluno();
 		aluno.setNome(nome);
-		//aluno.setIdade(Integer.parseInt(idade));
+		aluno.setIdade(Integer.parseInt(idade));
 		
 		for(int pos = 1; pos <= 1; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome  da Disciplina "+pos+" ?");
@@ -85,7 +150,7 @@ public class ClasseExecutavel {
 			//aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover)); //intValue;
 			aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover)-1);
 			
-		}*/
+		}
 		if (escolha == 0) {
 			
 			int continuarRemover = 0;
@@ -101,14 +166,14 @@ public class ClasseExecutavel {
 			}
 		}
 		
-		/*aluno.getDisciplina().setNota1(Double.parseDouble(nota1));
+		aluno.getDisciplina().setNota1(Double.parseDouble(nota1));
 		aluno.getDisciplina().setNota2(Double.parseDouble(nota2));
 		aluno.getDisciplina().setNota3(Double.parseDouble(nota3));
 		aluno.getDisciplina().setNota4 (Double.parseDouble(nota4));
 		aluno.getDisciplina().setDisciplina1(disciplina1);
 		aluno.getDisciplina().setDisciplina2(disciplina2);
 		aluno.getDisciplina().setDisciplina3(disciplina3);
-		aluno.getDisciplina().setDisciplina4(disciplina4);*/
+		aluno.getDisciplina().setDisciplina4(disciplina4);
 			alunos.add(aluno);
 		
 		}
