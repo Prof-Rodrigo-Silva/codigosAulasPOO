@@ -69,7 +69,7 @@ public class ClasseExecutavel {
 		}*/
 		
 		//FuncaoAutenticacao autentificacao = new FuncaoAutenticacao();
-		//PermitirAcesso permitirAcesso = new Secretario(login,senha);
+		PermitirAcesso permitirAcesso = new Secretario(login,senha);
 		
 		if(new FuncaoAutenticacao(new Secretario(login,senha)).autenticarAcesso()) {
 			
@@ -78,8 +78,8 @@ public class ClasseExecutavel {
 		}else {
 			JOptionPane.showMessageDialog(null, "Acesso não permitido");
 		}
-		
-		/*Aluno aluno1;
+		/*
+		Aluno aluno1;
 		aluno1.
 		
 		Aluno aluno2 = new Aluno("Maria");
@@ -104,7 +104,7 @@ public class ClasseExecutavel {
 		System.out.println("Nota3 = "+aluno.getNota3());
 		System.out.println("Nota4 = "+aluno.getNota4());
 		
-		System.out.println(aluno.toString());
+		System.out.println(aluno.toString());*/
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
@@ -112,21 +112,21 @@ public class ClasseExecutavel {
 		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
 		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 		
-		É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também
+		//É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 		
-		for( int qtd = 1; qtd <= 6; qtd++) {
+		for( int qtd = 1; qtd <= 2; qtd++) {
 		
 		String nome = JOptionPane.showInputDialog("Qual o nome? ");
 		String idade = JOptionPane.showInputDialog("Qual idade? ");
-		String disciplina1 = JOptionPane.showInputDialog("informe a disciplina1: ");
+		/*String disciplina1 = JOptionPane.showInputDialog("informe a disciplina1: ");
 		String nota1 = JOptionPane.showInputDialog("informe a nota1: ");
 		String disciplina2 = JOptionPane.showInputDialog("informe a disciplina2: ");
 		String nota2 = JOptionPane.showInputDialog("informe a nota2: ");
 		String disciplina3 = JOptionPane.showInputDialog("informe a disciplina3: ");
 		String nota3 = JOptionPane.showInputDialog("informe a nota3: ");
 		String disciplina4 = JOptionPane.showInputDialog("informe a disciplina4: ");
-		String nota4 = JOptionPane.showInputDialog("informe a nota4: ");
+		String nota4 = JOptionPane.showInputDialog("informe a nota4: ");*/
 		
 		Aluno aluno = new Aluno();
 		aluno.setNome(nome);
@@ -143,9 +143,9 @@ public class ClasseExecutavel {
 			
 			aluno.getDisciplinas().add(disciplina);
 		}
-		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		/*int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
 		
-		/*if (escolha == 0) {
+		if (escolha == 0) {
 			String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1, 2, 3 ou 4 ?");
 			//aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover)); //intValue;
 			aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover)-1);
@@ -173,7 +173,7 @@ public class ClasseExecutavel {
 		aluno.getDisciplina().setDisciplina1(disciplina1);
 		aluno.getDisciplina().setDisciplina2(disciplina2);
 		aluno.getDisciplina().setDisciplina3(disciplina3);
-		aluno.getDisciplina().setDisciplina4(disciplina4);
+		aluno.getDisciplina().setDisciplina4(disciplina4);*/
 			alunos.add(aluno);
 		
 		}
@@ -264,9 +264,7 @@ public class ClasseExecutavel {
 				System.out.println("Disciplina: "+disciplina.getDisciplina()+" | Nota: "+disciplina.getDisciplina());
 				System.out.println("-----------------------------------------------");
 				
-			}
-			
-			
+			}	
 		}
 		
 		Remover aluno da lista
