@@ -10,6 +10,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import atributos.estaticos.StatusAluno;
+import classes.excecoes.ExcecoesProcessarDados;
 import classes.java.Aluno;
 import classes.java.Disciplina;
 import classes.java.Secretario;
@@ -22,6 +23,17 @@ public class ClasseExecutavelExcecoes {
 		
 		
 		try {
+			/*try {
+				File file = new File("C:/Users/fermat/Desktop/teste.txt");
+				Scanner scanner = new Scanner(file);
+			}catch (FileNotFoundException e) {
+				e.printStackTrace();
+				//throw new ExcecoesProcessarDados("Erro na leitura do arquivo!!");
+				throw new ExcecoesProcessarDados(e.getMessage());
+			}*/
+		
+		lerArquivo();
+			
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -29,8 +41,8 @@ public class ClasseExecutavelExcecoes {
 		
 		if(new FuncaoAutenticacao(new Secretario(login,senha)).autenticarAcesso()) {
 			
-			//List<Aluno> alunos = new ArrayList<Aluno>();
-			List<Aluno> alunos = null;
+			List<Aluno> alunos = new ArrayList<Aluno>();
+			//List<Aluno> alunos = null;
 		
 			List<Aluno> alunosAprovados = new ArrayList<Aluno>();
 			List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
@@ -114,6 +126,9 @@ public class ClasseExecutavelExcecoes {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Ocorreu um erro..."+e.getClass());
 			
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "ERRO DA EXECUÇÃO CUSTOMIZADA: "+e.getClass().getName());
 		}
 		
 		catch (Exception e) {
@@ -122,7 +137,7 @@ public class ClasseExecutavelExcecoes {
 			
 			e.printStackTrace();
 			//JOptionPane.showMessageDialog(null, "Ocorreu um erro...");
-			System.out.println("Mensagem: "+e.getMessage());
+			//System.out.println("Mensagem: "+e.getMessage());
 			//e.getStackTrace(); retorna um Arry
 			
 			/*for(int i = 0; i < e.getStackTrace().length;i++) {
@@ -137,8 +152,28 @@ public class ClasseExecutavelExcecoes {
 				saida.append("\n Linha de erro : "+e.getStackTrace()[i].getLineNumber());	
 			}
 			JOptionPane.showMessageDialog(null, "Ocorreu um erro..."+saida.toString());	
+		}finally {
+			JOptionPane.showMessageDialog(null, "SEMPRE EXECUTA!!!!");
 		}
 
+	}
+
+	/*public static void lerArquivo() throws ExcecoesProcessarDados {
+		try {
+			File file = new File("C:/Users/fermat/Desktop/teste.txt");
+			Scanner scanner = new Scanner(file);
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+			//throw new ExcecoesProcessarDados("Erro na leitura do arquivo!!");
+			throw new ExcecoesProcessarDados(e.getMessage());
+		}
+		
+	}*/
+	
+	public static void lerArquivo() throws FileNotFoundException {
+			File file = new File("C:/Users/fermat/Desktop/teste.txt");
+			Scanner scanner = new Scanner(file);
+		
 	}
 
 }
