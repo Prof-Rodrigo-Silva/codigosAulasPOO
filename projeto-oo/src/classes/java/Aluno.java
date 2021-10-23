@@ -70,11 +70,13 @@ public class Aluno extends Pessoa{
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", disciplinas=" + disciplinas + "]";
 	}
+	
 	public double CalculaMedia() {
 		double somaNotas = 0;
 		
 		for (Disciplina disciplina : disciplinas) {
-			somaNotas += disciplina.getNota();
+			//somaNotas += disciplina.getNota();
+			somaNotas += disciplina.getMediaNotas();
 		}
 		return somaNotas / disciplinas.size();
 	}
