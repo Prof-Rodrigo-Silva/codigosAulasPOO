@@ -67,7 +67,7 @@ public class ArrayVetor {
 		disciplina1.setNota(notasPHP);
 		aluno.getDisciplinas().add(disciplina1);
 		
-		System.out.println("Nome do aluno = "+aluno.getNome());
+		/*System.out.println("Nome do aluno = "+aluno.getNome());
 		System.out.println("Escola = "+aluno.getNomeEscola());
 		System.out.println("----------------DISCIPLINAS DO ALUNO----------------------");
 		for(Disciplina disc : aluno.getDisciplinas()) {
@@ -95,6 +95,25 @@ public class ArrayVetor {
 			}
 			System.out.println("A maior nota de "+disc.getDisciplina()+" é de: "+notaMax);
 			System.out.println("A menor nota de "+disc.getDisciplina()+" é de: "+notaMin);
+		}*/
+		Aluno[] arrayAlunos = new Aluno[1];
+		
+		arrayAlunos[0] = aluno;
+		
+		for(int pos = 0; pos < arrayAlunos.length;pos++) {
+			
+			System.out.println("Nome do aluno: "+arrayAlunos[pos].getNome());
+			
+			for(Disciplina disc : arrayAlunos[pos].getDisciplinas()) {
+				
+				System.out.println("Nome da disciplina: "+disc.getDisciplina());
+				
+				for(int posnota = 0; posnota < disc.getNota().length;posnota++) {
+					
+					System.out.println("A nota n° "+(posnota+1) + " é = "+disc.getNota()[posnota]);
+				}
+			
+			}
 		}
 	}
 
